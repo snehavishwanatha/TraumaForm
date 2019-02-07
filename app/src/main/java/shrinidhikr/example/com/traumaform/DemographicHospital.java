@@ -10,16 +10,24 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
+import android.widget.Toast;
 
 public class DemographicHospital extends AppCompatActivity {
     public static EditText D24,D26,D27,D28,D30,D31,D32,D33;
-
+    String id="";
+    String name="";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_demographic_hospital);
         getSupportActionBar().setTitle("Demographic & Hospital Data");
 
+        Intent intent = getIntent();
+        id= intent.getStringExtra("Parent");
+        name = intent.getStringExtra("Reg_id");
+
+        Toast.makeText(getApplicationContext(), id+name,
+                Toast.LENGTH_LONG).show();
         D24 = (EditText)findViewById(R.id.D24);
         D26 = (EditText)findViewById(R.id.D26);
         D27 = (EditText)findViewById(R.id.D27);
@@ -95,6 +103,20 @@ public class DemographicHospital extends AppCompatActivity {
                 share.editor.putString("33",D33.getText().toString());
                 share.editor.apply();
                 Intent i = new Intent(getApplicationContext(), FirstSetofVitals.class);
+                if(id.equals("P")||(id=="P"))
+                {
+                    i.putExtra("Reg_id", name);
+                    i.putExtra("Parent", "P");
+                }
+                else if(id.equals("C")||id=="C")
+                {
+                    i.putExtra("Reg_id", name);
+                    i.putExtra("Parent", "C");
+                }
+                else
+                {
+                    i.putExtra("Parent", "Nav");
+                }
                 startActivity(i);
             }
         });

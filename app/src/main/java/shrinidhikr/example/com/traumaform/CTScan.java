@@ -10,10 +10,12 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
+import android.widget.Toast;
 
 public class CTScan extends AppCompatActivity {
     public static EditText D45_5_2,D45_5_3,D45_6_3,D45_6_2,D45_4_2,D45_4_3,D45_7_3,D45_7_2,D45_8_2,D45_8_3;
-
+    String id="";
+    String name="";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -32,7 +34,12 @@ public class CTScan extends AppCompatActivity {
         D45_8_2 = (EditText)findViewById(R.id.D45_8_2);
         D45_8_3 = (EditText)findViewById(R.id.D45_8_3);
 
+        Intent intent = getIntent();
+        id= intent.getStringExtra("Parent");
+        name = intent.getStringExtra("Reg_id");
 
+        Toast.makeText(getApplicationContext(), id+name,
+                Toast.LENGTH_LONG).show();
 
         final Spinner spinner45_4_1 = (Spinner) findViewById(R.id.spinner45_4_1);
         final Spinner spinner45_5_1 = (Spinner) findViewById(R.id.spinner45_5_1);
@@ -170,6 +177,20 @@ public class CTScan extends AppCompatActivity {
                 share.editor.apply();
 
                 Intent i = new Intent(getApplicationContext(), CriticalEDProcedure.class);
+                if(id.equals("P")||(id=="P"))
+                {
+                    i.putExtra("Reg_id", name);
+                    i.putExtra("Parent", "P");
+                }
+                else if(id.equals("C")||id=="C")
+                {
+                    i.putExtra("Reg_id", name);
+                    i.putExtra("Parent", "C");
+                }
+                else
+                {
+                    i.putExtra("Parent", "Nav");
+                }
                 startActivity(i);
             }
         });

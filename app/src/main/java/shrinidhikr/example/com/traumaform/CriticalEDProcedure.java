@@ -8,9 +8,11 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.Spinner;
+import android.widget.Toast;
 
 public class CriticalEDProcedure extends AppCompatActivity {
-
+    String id="";
+    String name="";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -24,6 +26,12 @@ public class CriticalEDProcedure extends AppCompatActivity {
         final Spinner spinner46_4 = (Spinner) findViewById(R.id.spinner46_4);
         final Spinner spinner46_5 = (Spinner) findViewById(R.id.spinner46_5);
 
+        Intent intent = getIntent();
+        id= intent.getStringExtra("Parent");
+        name = intent.getStringExtra("Reg_id");
+
+        Toast.makeText(getApplicationContext(), id+name,
+                Toast.LENGTH_LONG).show();
         String[] items = new String[]{"Not Selected","1. Yes", "2. No","3. Outside","-1. Not Applicable","-2. Unknown or not available","-3. Not recorded or inadequately described"};
 
         ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_dropdown_item, items);
@@ -142,6 +150,20 @@ public class CriticalEDProcedure extends AppCompatActivity {
                share.editor.putString("46_5",spinner46_5.getSelectedItem().toString());
 
                 Intent i = new Intent(getApplicationContext(), PostAdmission.class);
+                if(id.equals("P")||(id=="P"))
+                {
+                    i.putExtra("Reg_id", name);
+                    i.putExtra("Parent", "P");
+                }
+                else if(id.equals("C")||id=="C")
+                {
+                    i.putExtra("Reg_id", name);
+                    i.putExtra("Parent", "C");
+                }
+                else
+                {
+                    i.putExtra("Parent", "Nav");
+                }
                 startActivity(i);
             }
         });

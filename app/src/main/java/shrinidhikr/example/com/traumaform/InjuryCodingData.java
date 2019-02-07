@@ -1,6 +1,7 @@
 package shrinidhikr.example.com.traumaform;
 
 import android.content.Context;
+import android.content.Intent;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
@@ -201,6 +202,10 @@ public class InjuryCodingData extends AppCompatActivity {
                         FinalPush.child("R"+res).child(K).setValue(V);
                     }
                 }
+                Intent i = new Intent(getApplicationContext(), MainActivity.class);
+                i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                startActivity(i);
+                
 
             }
         });

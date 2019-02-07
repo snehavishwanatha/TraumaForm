@@ -10,17 +10,24 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
+import android.widget.Toast;
 
 public class EDInvestigations extends AppCompatActivity {
     public static EditText D44_2,D44_3,D45_1_2,D45_1_3,D45_2_2,D45_2_3,D45_3_2,D45_3_3;
-
+    String id="";
+    String name="";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_edinvestigations);
         getSupportActionBar().setTitle("ED Investigation");
 
+        Intent intent = getIntent();
+        id= intent.getStringExtra("Parent");
+        name = intent.getStringExtra("Reg_id");
 
+        Toast.makeText(getApplicationContext(), id+name,
+                Toast.LENGTH_LONG).show();
         D44_2 = (EditText)findViewById(R.id.D44_2);
         D44_3 = (EditText)findViewById(R.id.D44_3);
         D45_1_2 = (EditText)findViewById(R.id.D45_1_2);
@@ -63,6 +70,20 @@ public class EDInvestigations extends AppCompatActivity {
                 share.editor.apply();
 
                 Intent i = new Intent(getApplicationContext(), CTScan.class);
+                if(id.equals("P")||(id=="P"))
+                {
+                    i.putExtra("Reg_id", name);
+                    i.putExtra("Parent", "P");
+                }
+                else if(id.equals("C")||id=="C")
+                {
+                    i.putExtra("Reg_id", name);
+                    i.putExtra("Parent", "C");
+                }
+                else
+                {
+                    i.putExtra("Parent", "Nav");
+                }
                 startActivity(i);
             }
         });

@@ -10,10 +10,12 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
+import android.widget.Toast;
 
 public class PostAdmission extends AppCompatActivity {
     public static EditText D47_1_1,D47_1_2,D47_2_1,D47_2_2,D47_3_1,D47_3_2,D47_4_1,D47_4_2,D47_5_1,D47_5_2,D47_6_1,D47_6_2,D47_7_1,D47_7_2,D47_8_1,D47_8_2,D47_9_1,D47_9_2,D47_10_1,D47_10_2,D47_11_1,D47_11_2,D47_12_1,D47_12_2;
-
+    String id="";
+    String name="";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -45,6 +47,12 @@ public class PostAdmission extends AppCompatActivity {
         D47_12_2 = (EditText)findViewById(R.id.D47_12_2);
         D47_12_1 = (EditText)findViewById(R.id.D47_12_1);
 
+        Intent intent = getIntent();
+        id= intent.getStringExtra("Parent");
+        name = intent.getStringExtra("Reg_id");
+
+        Toast.makeText(getApplicationContext(), id+name,
+                Toast.LENGTH_LONG).show();
 
         final Spinner spinner47 = (Spinner) findViewById(R.id.spinner47);
 
@@ -110,6 +118,20 @@ public class PostAdmission extends AppCompatActivity {
                 share.editor.apply();
 
                 Intent i = new Intent(getApplicationContext(), FollowUpData.class);
+                if(id.equals("P")||(id=="P"))
+                {
+                    i.putExtra("Reg_id", name);
+                    i.putExtra("Parent", "P");
+                }
+                else if(id.equals("C")||id=="C")
+                {
+                    i.putExtra("Reg_id", name);
+                    i.putExtra("Parent", "C");
+                }
+                else
+                {
+                    i.putExtra("Parent", "Nav");
+                }
                 startActivity(i);
             }
         });

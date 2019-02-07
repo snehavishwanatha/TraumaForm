@@ -7,10 +7,12 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 public class FirstSetofVitals extends AppCompatActivity {
     public static EditText D34,D35,D36,D37,D38,D39,D40,D41,D42,D43;
-
+    String id="";
+    String name="";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -28,6 +30,12 @@ public class FirstSetofVitals extends AppCompatActivity {
         D42 = (EditText)findViewById(R.id.D42);
         D43 = (EditText)findViewById(R.id.D43);
 
+        Intent intent = getIntent();
+        id= intent.getStringExtra("Parent");
+        name = intent.getStringExtra("Reg_id");
+
+        Toast.makeText(getApplicationContext(), id+name,
+                Toast.LENGTH_LONG).show();
         Button b = (Button) findViewById(R.id.next4);
 
         b.setOnClickListener(new View.OnClickListener() {
@@ -47,6 +55,20 @@ public class FirstSetofVitals extends AppCompatActivity {
                 share.editor.putString("43",D43.getText().toString());
                 share.editor.apply();
                 Intent i = new Intent(getApplicationContext(), EDInvestigations.class);
+                if(id.equals("P")||(id=="P"))
+                {
+                    i.putExtra("Reg_id", name);
+                    i.putExtra("Parent", "P");
+                }
+                else if(id.equals("C")||id=="C")
+                {
+                    i.putExtra("Reg_id", name);
+                    i.putExtra("Parent", "C");
+                }
+                else
+                {
+                    i.putExtra("Parent", "Nav");
+                }
                 startActivity(i);
             }
         });

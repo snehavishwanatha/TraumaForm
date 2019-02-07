@@ -10,10 +10,13 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
+import android.widget.Toast;
 
 public class FollowUpData extends AppCompatActivity {
 
     public static EditText D48_1,D48_2,D50,D51,D52,D53_1,D54,D55;
+    String id="";
+    String name="";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -28,6 +31,13 @@ public class FollowUpData extends AppCompatActivity {
         D53_1 = (EditText)findViewById(R.id.D53_1);
         D54 = (EditText)findViewById(R.id.D54);
         D55 = (EditText)findViewById(R.id.D55);
+
+        Intent intent = getIntent();
+        id= intent.getStringExtra("Parent");
+        name = intent.getStringExtra("Reg_id");
+
+        Toast.makeText(getApplicationContext(), id+name,
+                Toast.LENGTH_LONG).show();
 
         final Spinner spinner48 = (Spinner) findViewById(R.id.spinner48);
         final Spinner spinner49_1 = (Spinner) findViewById(R.id.spinner49_1);
@@ -165,6 +175,20 @@ public class FollowUpData extends AppCompatActivity {
                 share.editor.putString("55",D55.getText().toString());
                                 share.editor.apply();
                 Intent i = new Intent(getApplicationContext(),InjuryCodingData.class);
+                if(id.equals("P")||(id=="P"))
+                {
+                    i.putExtra("Reg_id", name);
+                    i.putExtra("Parent", "P");
+                }
+                else if(id.equals("C")||id=="C")
+                {
+                    i.putExtra("Reg_id", name);
+                    i.putExtra("Parent", "C");
+                }
+                else
+                {
+                    i.putExtra("Parent", "Nav");
+                }
                 startActivity(i);
             }
         });

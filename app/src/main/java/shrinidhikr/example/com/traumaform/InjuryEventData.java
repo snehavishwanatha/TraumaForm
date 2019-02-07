@@ -4,16 +4,27 @@ import android.content.Context;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
+import android.widget.Toast;
+
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 public class InjuryEventData extends AppCompatActivity {
 
     public static EditText D12,D13;
+    String id="";
+    String name="";
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -35,6 +46,96 @@ public class InjuryEventData extends AppCompatActivity {
         final Spinner spinner22 = (Spinner) findViewById(R.id.spinner22);
         final Spinner spinner23 = (Spinner) findViewById(R.id.spinner23);
 
+        Intent intent = getIntent();
+        id= intent.getStringExtra("Parent");
+        name = intent.getStringExtra("Reg_id");
+
+        Toast.makeText(getApplicationContext(), id+name,
+                Toast.LENGTH_LONG).show();
+
+        if(id.equals("P")||id=="P")
+        {
+
+            DatabaseReference rootRef = FirebaseDatabase.getInstance().getReference("Partial Database");
+            DatabaseReference itemsRef = rootRef.child("R"+name);
+            ValueEventListener eventListener = new ValueEventListener() {
+                @Override
+                public void onDataChange(DataSnapshot dataSnapshot) {
+                    Log.e("kess", dataSnapshot.toString());
+                    int i = 0, q = 11 ;
+                    String fp[] = new String[200];
+                    for (DataSnapshot ds : dataSnapshot.getChildren()) {
+                        String link = ds.getValue(String.class);
+                        Log.e("TAG", link);
+                        fp[i++] = link;
+
+                    }
+                    D12.setText(fp[q++]);
+                    D13.setText(fp[q++]);
+                    spinner14.setSelection(SpinnerValue.getIndex(spinner14, fp[q++]));
+                    spinner15.setSelection(SpinnerValue.getIndex(spinner15, fp[q++]));
+                    spinner16.setSelection(SpinnerValue.getIndex(spinner16, fp[q++]));
+                    spinner17.setSelection(SpinnerValue.getIndex(spinner17, fp[q++]));
+                    spinner18.setSelection(SpinnerValue.getIndex(spinner18, fp[q++]));
+                    spinner19.setSelection(SpinnerValue.getIndex(spinner19, fp[q++]));
+                    spinner20_1.setSelection(SpinnerValue.getIndex(spinner20_1, fp[q++]));
+                    spinner20_2.setSelection(SpinnerValue.getIndex(spinner20_2, fp[q++]));
+                    spinner20_3.setSelection(SpinnerValue.getIndex(spinner20_3, fp[q++]));
+                    spinner21.setSelection(SpinnerValue.getIndex(spinner21, fp[q++]));
+                    spinner22.setSelection(SpinnerValue.getIndex(spinner22, fp[q++]));
+                    spinner23.setSelection(SpinnerValue.getIndex(spinner23, fp[q++]));
+
+                }
+
+                @Override
+                public void onCancelled(DatabaseError databaseError) {}
+            };
+            itemsRef.addListenerForSingleValueEvent(eventListener);
+
+
+        }
+        else if(id.equals("C")||id=="C")
+        {
+            DatabaseReference rootRef = FirebaseDatabase.getInstance().getReference("Complete Database");
+            DatabaseReference itemsRef = rootRef.child("R"+name);
+            ValueEventListener eventListener = new ValueEventListener() {
+                @Override
+                public void onDataChange(DataSnapshot dataSnapshot) {
+                    Log.e("kess", dataSnapshot.toString());
+                    int i = 0, q = 11;
+                    String fp[] = new String[1000];
+                    for (DataSnapshot ds : dataSnapshot.getChildren()) {
+                        String link = ds.getValue(String.class);
+                        Log.e("TAG", link);
+                        fp[i++] = link;
+
+                    }
+                    D12.setText(fp[q++]);
+                    D13.setText(fp[q++]);D12.setText(fp[q++]);
+                    D13.setText(fp[q++]);
+                    spinner14.setSelection(SpinnerValue.getIndex(spinner14, fp[q++]));
+                    spinner15.setSelection(SpinnerValue.getIndex(spinner15, fp[q++]));
+                    spinner16.setSelection(SpinnerValue.getIndex(spinner16, fp[q++]));
+                    spinner17.setSelection(SpinnerValue.getIndex(spinner17, fp[q++]));
+                    spinner18.setSelection(SpinnerValue.getIndex(spinner18, fp[q++]));
+                    spinner19.setSelection(SpinnerValue.getIndex(spinner19, fp[q++]));
+                    spinner20_1.setSelection(SpinnerValue.getIndex(spinner20_1, fp[q++]));
+                    spinner20_2.setSelection(SpinnerValue.getIndex(spinner20_2, fp[q++]));
+                    spinner20_3.setSelection(SpinnerValue.getIndex(spinner20_3, fp[q++]));
+                    spinner21.setSelection(SpinnerValue.getIndex(spinner21, fp[q++]));
+                    spinner22.setSelection(SpinnerValue.getIndex(spinner22, fp[q++]));
+                    spinner23.setSelection(SpinnerValue.getIndex(spinner23, fp[q++]));
+
+
+                }
+
+                @Override
+                public void onCancelled(DatabaseError databaseError) {}
+            };
+            itemsRef.addListenerForSingleValueEvent(eventListener);
+
+
+        }
 
 
         String[] items = new String[]{"11 [URBAN] Urban Arterial (high Capacity Urban Road)", "12 [URBAN] Street","13  [URBAN] Others","14  [URBAN] Unknown","15 [URBAN] Not Recorded","21 [RURAL] State Highway","22 [RURAL] National highway","23 [RURAL] Others","24 [RURAL] Unknown","25 [RURAL] Not Recorded","-1. Not Applicable","-2. Unknown or not available","-3. Not recorded or inadequately described"};
@@ -305,6 +406,20 @@ public class InjuryEventData extends AppCompatActivity {
                 share.editor.apply();
 
                 Intent i = new Intent(getApplicationContext(), DemographicHospital.class);
+                if(id.equals("P")||(id=="P"))
+                {
+                    i.putExtra("Reg_id", name);
+                    i.putExtra("Parent", "P");
+                }
+                else if(id.equals("C")||id=="C")
+                {
+                    i.putExtra("Reg_id", name);
+                    i.putExtra("Parent", "C");
+                }
+                else
+                {
+                    i.putExtra("Parent", "Nav");
+                }
                 startActivity(i);
             }
         });

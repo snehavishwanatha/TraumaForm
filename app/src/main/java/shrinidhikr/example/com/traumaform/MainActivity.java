@@ -82,6 +82,7 @@ public class MainActivity extends AppCompatActivity
                             if (dataSnapshot.exists()) {
                                 Toast.makeText(getApplicationContext(), "Partial form found",
                                         Toast.LENGTH_LONG).show();
+                               // FetchPartial.FetchP(st1.getText().toString());
                                 Intent i = new Intent(getApplicationContext(), BasicDetails.class);
                                 i.putExtra("Reg_id", st1.getText().toString());
                                 i.putExtra("Parent", "P");
@@ -120,6 +121,7 @@ public class MainActivity extends AppCompatActivity
                             if (dataSnapshot.exists()) {
                                 Toast.makeText(getApplicationContext(), "Complete form found",
                                         Toast.LENGTH_LONG).show();
+                             //   FetchComplete.FetchC(st2.getText().toString());
                                 Intent i = new Intent(getApplicationContext(), BasicDetails.class);
                                 i.putExtra("Reg_id", st2.getText().toString());
                                 i.putExtra("Parent", "C");
