@@ -71,65 +71,76 @@ public class MainActivity extends AppCompatActivity
             @Override
             public void onClick(View view) {
 
-                DatabaseReference rootRef = FirebaseDatabase.getInstance().getReference("Partial Reg");
-                DatabaseReference userNameRef = rootRef.child(st1.getText().toString());
+                if (!st1.getText().toString().equals("") || !(st1.getText().toString() == null) && !st1.getText().toString().isEmpty()) {
+                    DatabaseReference rootRef = FirebaseDatabase.getInstance().getReference("Partial Reg");
+                    DatabaseReference userNameRef = rootRef.child(st1.getText().toString());
 
-                ValueEventListener eventListener = new ValueEventListener() {
-                    @Override
-                    public void onDataChange(DataSnapshot dataSnapshot) {
-                        if (dataSnapshot.exists()) {
-                            Toast.makeText(getApplicationContext(), "Partial form found",
-                                    Toast.LENGTH_LONG).show();
-                            Intent i = new Intent(getApplicationContext(),BasicDetails.class);
-                            i.putExtra("Reg_id",st1.getText().toString());
-                            i.putExtra("Parent","P");
-                            startActivity(i);
+                    Log.d("Textst1", st1.getText().toString());
+                    ValueEventListener eventListener = new ValueEventListener() {
+                        @Override
+                        public void onDataChange(DataSnapshot dataSnapshot) {
+                            if (dataSnapshot.exists()) {
+                                Toast.makeText(getApplicationContext(), "Partial form found",
+                                        Toast.LENGTH_LONG).show();
+                                Intent i = new Intent(getApplicationContext(), BasicDetails.class);
+                                i.putExtra("Reg_id", st1.getText().toString());
+                                i.putExtra("Parent", "P");
+                                startActivity(i);
+                            } else
+                                Toast.makeText(getApplicationContext(), "Not found",
+                                        Toast.LENGTH_LONG).show();
+
                         }
-                        else
-                            Toast.makeText(getApplicationContext(), "Not found",
-                                    Toast.LENGTH_LONG).show();
 
-                    }
-
-                    @Override
-                    public void onCancelled(DatabaseError databaseError) {
-                        Log.d("Ta", databaseError.getMessage()); //Don't ignore errors!
-                    }
-                };
-                userNameRef.addListenerForSingleValueEvent(eventListener);
+                        @Override
+                        public void onCancelled(DatabaseError databaseError) {
+                            Log.d("Ta", databaseError.getMessage()); //Don't ignore errors!
+                        }
+                    };
+                    userNameRef.addListenerForSingleValueEvent(eventListener);
+                }
+                else Toast.makeText(getApplicationContext(), "Enter value",
+                        Toast.LENGTH_LONG).show();
             }
+
         });
 
         sb2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
-                DatabaseReference rootRef = FirebaseDatabase.getInstance().getReference("Complete Reg");
-                DatabaseReference userNameRef = rootRef.child(st2.getText().toString());
+                if (!st2.getText().toString().equals("") ||!( st2.getText().toString() == null) && !st2.getText().toString().isEmpty()) {
 
-                ValueEventListener eventListener = new ValueEventListener() {
-                    @Override
-                    public void onDataChange(DataSnapshot dataSnapshot) {
-                        if (dataSnapshot.exists()) {
-                            Toast.makeText(getApplicationContext(), "Complete form found",
-                                    Toast.LENGTH_LONG).show();
-                            Intent i = new Intent(getApplicationContext(),BasicDetails.class);
-                            i.putExtra("Reg_id",st2.getText().toString());
-                            i.putExtra("Parent","C");
-                            startActivity(i);
+                    DatabaseReference rootRef = FirebaseDatabase.getInstance().getReference("Complete Reg");
+                    DatabaseReference userNameRef = rootRef.child(st2.getText().toString());
+
+                    ValueEventListener eventListener = new ValueEventListener() {
+                        @Override
+                        public void onDataChange(DataSnapshot dataSnapshot) {
+                            if (dataSnapshot.exists()) {
+                                Toast.makeText(getApplicationContext(), "Complete form found",
+                                        Toast.LENGTH_LONG).show();
+                                Intent i = new Intent(getApplicationContext(), BasicDetails.class);
+                                i.putExtra("Reg_id", st2.getText().toString());
+                                i.putExtra("Parent", "C");
+                                startActivity(i);
+                            } else
+                                Toast.makeText(getApplicationContext(), "Not found",
+                                        Toast.LENGTH_LONG).show();
                         }
-                        else
-                            Toast.makeText(getApplicationContext(), "Not found",
-                                    Toast.LENGTH_LONG).show();
-                    }
 
-                    @Override
-                    public void onCancelled(DatabaseError databaseError) {
-                        Log.d("Ta", databaseError.getMessage()); //Don't ignore errors!
-                    }
-                };
-                userNameRef.addListenerForSingleValueEvent(eventListener);
+                        @Override
+                        public void onCancelled(DatabaseError databaseError) {
+                            Log.d("Ta", databaseError.getMessage()); //Don't ignore errors!
+                        }
+                    };
+                    userNameRef.addListenerForSingleValueEvent(eventListener);
+                }
+
+                else Toast.makeText(getApplicationContext(), "Enter value",
+            Toast.LENGTH_LONG).show();
             }
+
         });
 
 
