@@ -159,20 +159,20 @@ public class FollowUpData extends AppCompatActivity {
                 share.auth = getApplicationContext().getSharedPreferences("0001", Context.MODE_PRIVATE);
                 share.editor = share.auth.edit();
 
-                share.editor.putString("48",spinner48.getSelectedItem().toString());
-                share.editor.putString("48_1",D48_1.getText().toString());
-                share.editor.putString("48_2",D48_2.getText().toString());
-                share.editor.putString("49_1",spinner49_1.getSelectedItem().toString());
-                share.editor.putString("49_2",spinner49_2.getSelectedItem().toString());
-                share.editor.putString("49_3",spinner49_3.getSelectedItem().toString());
-                share.editor.putString("50",D50.getText().toString());
-                share.editor.putString("51",D51.getText().toString());
-                share.editor.putString("52",D52.getText().toString());
-                share.editor.putString("53",spinner53.getSelectedItem().toString());
-                share.editor.putString("53_1",D53_1.getText().toString());
+                share.editor.putString("104",spinner48.getSelectedItem().toString());
+                share.editor.putString("105",D48_1.getText().toString());
+                share.editor.putString("106",D48_2.getText().toString());
+                share.editor.putString("107",spinner49_1.getSelectedItem().toString());
+                share.editor.putString("108",spinner49_2.getSelectedItem().toString());
+                share.editor.putString("109",spinner49_3.getSelectedItem().toString());
+                share.editor.putString("110",D50.getText().toString());
+                share.editor.putString("111",D51.getText().toString());
+                share.editor.putString("112",D52.getText().toString());
+                share.editor.putString("113",spinner53.getSelectedItem().toString());
+                share.editor.putString("114",D53_1.getText().toString());
               
-                share.editor.putString("54",D54.getText().toString());
-                share.editor.putString("55",D55.getText().toString());
+                share.editor.putString("115",D54.getText().toString());
+                share.editor.putString("116",D55.getText().toString());
                                 share.editor.apply();
                 Intent i = new Intent(getApplicationContext(),InjuryCodingData.class);
                 if(id.equals("P")||(id=="P"))

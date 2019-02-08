@@ -91,16 +91,16 @@ public class DemographicHospital extends AppCompatActivity {
                 share.auth = getApplicationContext().getSharedPreferences("0001", Context.MODE_PRIVATE);
                 share.editor = share.auth.edit();
 
-                share.editor.putString("24",D24.getText().toString());
-                share.editor.putString("25",spinner25.getSelectedItem().toString());
-                share.editor.putString("26",D26.getText().toString());
-                share.editor.putString("27",D27.getText().toString());
-                share.editor.putString("28",D28.getText().toString());
-                share.editor.putString("29",spinner29.getSelectedItem().toString());
-                share.editor.putString("30",D30.getText().toString());
-                share.editor.putString("31",D31.getText().toString());
-                share.editor.putString("32",D32.getText().toString());
-                share.editor.putString("33",D33.getText().toString());
+                share.editor.putString("26",D24.getText().toString());
+                share.editor.putString("27",spinner25.getSelectedItem().toString());
+                share.editor.putString("28",D26.getText().toString());
+                share.editor.putString("29",D27.getText().toString());
+                share.editor.putString("30",D28.getText().toString());
+                share.editor.putString("31",spinner29.getSelectedItem().toString());
+                share.editor.putString("32",D30.getText().toString());
+                share.editor.putString("33",D31.getText().toString());
+                share.editor.putString("34",D32.getText().toString());
+                share.editor.putString("35",D33.getText().toString());
                 share.editor.apply();
                 Intent i = new Intent(getApplicationContext(), FirstSetofVitals.class);
                 if(id.equals("P")||(id=="P"))

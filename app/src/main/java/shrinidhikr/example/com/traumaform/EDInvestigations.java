@@ -53,19 +53,19 @@ public class EDInvestigations extends AppCompatActivity {
 
 
                 share.auth = getApplicationContext().getSharedPreferences("0001", Context.MODE_PRIVATE);
-                share.editor.putString("44_1",spinner44_1.getSelectedItem().toString());
-                share.editor.putString("44_2",D44_2.getText().toString());
-                share.editor.putString("44_3",D44_3.getText().toString());
-                share.editor.putString("45",spinner45.getSelectedItem().toString());
-                share.editor.putString("45_1_1",spinner45_1_1_.getSelectedItem().toString());
-                share.editor.putString("45_1_2",D45_1_2.getText().toString());
-                share.editor.putString("45_1_3",D45_1_3.getText().toString());
-                share.editor.putString("45_2_1",spinner45_2_1.getSelectedItem().toString());
-                share.editor.putString("45_2_2",D45_2_2.getText().toString());
-                share.editor.putString("45_2_3",D45_2_3.getText().toString());
-                share.editor.putString("45_3_1",spinner45_3_1.getSelectedItem().toString());
-                share.editor.putString("45_3_2",D45_3_2.getText().toString());
-                share.editor.putString("45_3_3",D45_3_3.getText().toString());
+                share.editor.putString("46",spinner44_1.getSelectedItem().toString());
+                share.editor.putString("47",D44_2.getText().toString());
+                share.editor.putString("48",D44_3.getText().toString());
+                share.editor.putString("49",spinner45.getSelectedItem().toString());
+                share.editor.putString("50",spinner45_1_1_.getSelectedItem().toString());
+                share.editor.putString("51",D45_1_2.getText().toString());
+                share.editor.putString("52",D45_1_3.getText().toString());
+                share.editor.putString("53",spinner45_2_1.getSelectedItem().toString());
+                share.editor.putString("54",D45_2_2.getText().toString());
+                share.editor.putString("55",D45_2_3.getText().toString());
+                share.editor.putString("56",spinner45_3_1.getSelectedItem().toString());
+                share.editor.putString("57",D45_3_2.getText().toString());
+                share.editor.putString("58",D45_3_3.getText().toString());
 
                 share.editor.apply();
 

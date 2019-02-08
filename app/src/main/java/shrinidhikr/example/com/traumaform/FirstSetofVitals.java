@@ -43,16 +43,16 @@ public class FirstSetofVitals extends AppCompatActivity {
             public void onClick(View view) {
 
                 share.auth = getApplicationContext().getSharedPreferences("0001", Context.MODE_PRIVATE);
-                share.editor.putString("34",D34.getText().toString());
-                share.editor.putString("35",D35.getText().toString());
-                share.editor.putString("36",D36.getText().toString());
-                share.editor.putString("37",D37.getText().toString());
-                share.editor.putString("38",D38.getText().toString());
-                share.editor.putString("39",D39.getText().toString());
-                share.editor.putString("40",D40.getText().toString());
-                share.editor.putString("41",D41.getText().toString());
-                share.editor.putString("42",D42.getText().toString());
-                share.editor.putString("43",D43.getText().toString());
+                share.editor.putString("36",D34.getText().toString());
+                share.editor.putString("37",D35.getText().toString());
+                share.editor.putString("38",D36.getText().toString());
+                share.editor.putString("39",D37.getText().toString());
+                share.editor.putString("40",D38.getText().toString());
+                share.editor.putString("41",D39.getText().toString());
+                share.editor.putString("42",D40.getText().toString());
+                share.editor.putString("43",D41.getText().toString());
+                share.editor.putString("44",D42.getText().toString());
+                share.editor.putString("45",D43.getText().toString());
                 share.editor.apply();
                 Intent i = new Intent(getApplicationContext(), EDInvestigations.class);
                 if(id.equals("P")||(id=="P"))

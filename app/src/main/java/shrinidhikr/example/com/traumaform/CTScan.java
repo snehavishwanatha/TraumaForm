@@ -158,21 +158,21 @@ public class CTScan extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 share.auth = getApplicationContext().getSharedPreferences("0001", Context.MODE_PRIVATE);
-                share.editor.putString("45_4_1",spinner45_4_1.getSelectedItem().toString());
-                share.editor.putString("45_4_2",D45_4_2.getText().toString());
-                share.editor.putString("45_4_3",D45_4_3.getText().toString());
-                share.editor.putString("45_5_1",spinner45_5_1.getSelectedItem().toString());
-                share.editor.putString("45_5_2",D45_5_2.getText().toString());
-                share.editor.putString("45_5_3",D45_5_3.getText().toString());
-                share.editor.putString("45_6_1",spinner45_6_1.getSelectedItem().toString());
-                share.editor.putString("45_6_2",D45_6_2.getText().toString());
-                share.editor.putString("45_6_3",D45_6_3.getText().toString());
-                share.editor.putString("45_7_1",spinner45_7_1.getSelectedItem().toString());
-                share.editor.putString("45_7_2",D45_7_2.getText().toString());
-                share.editor.putString("45_7_3",D45_7_3.getText().toString());
-                share.editor.putString("45_8_1",spinner45_8_1.getSelectedItem().toString());
-                share.editor.putString("45_8_2",D45_8_2.getText().toString());
-                share.editor.putString("45_8_3",D45_8_3.getText().toString());
+                share.editor.putString("59",spinner45_4_1.getSelectedItem().toString());
+                share.editor.putString("60",D45_4_2.getText().toString());
+                share.editor.putString("61",D45_4_3.getText().toString());
+                share.editor.putString("62",spinner45_5_1.getSelectedItem().toString());
+                share.editor.putString("63",D45_5_2.getText().toString());
+                share.editor.putString("64",D45_5_3.getText().toString());
+                share.editor.putString("65",spinner45_6_1.getSelectedItem().toString());
+                share.editor.putString("66",D45_6_2.getText().toString());
+                share.editor.putString("67",D45_6_3.getText().toString());
+                share.editor.putString("68",spinner45_7_1.getSelectedItem().toString());
+                share.editor.putString("69",D45_7_2.getText().toString());
+                share.editor.putString("70",D45_7_3.getText().toString());
+                share.editor.putString("71",spinner45_8_1.getSelectedItem().toString());
+                share.editor.putString("72",D45_8_2.getText().toString());
+                share.editor.putString("73",D45_8_3.getText().toString());
 
                 share.editor.apply();
 

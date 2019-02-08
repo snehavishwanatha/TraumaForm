@@ -86,31 +86,31 @@ public class PostAdmission extends AppCompatActivity {
 
 
                 share.auth = getApplicationContext().getSharedPreferences("0001", Context.MODE_PRIVATE);
-                share.editor.putString("47",spinner47.getSelectedItem().toString());
-                share.editor.putString("47_1_1",D47_1_1.getText().toString());
-                share.editor.putString("47_1_2",D47_1_2.getText().toString());
-                share.editor.putString("47_2_1",D47_2_1.getText().toString());
-                share.editor.putString("47_2_2",D47_2_2.getText().toString());
-                share.editor.putString("47_3_1",D47_3_1.getText().toString());
-                share.editor.putString("47_3_2",D47_3_2.getText().toString());
-                share.editor.putString("47_4_1",D47_4_1.getText().toString());
-                share.editor.putString("47_4_2",D47_4_2.getText().toString());
-                share.editor.putString("47_5_1",D47_5_1.getText().toString());
-                share.editor.putString("47_5_2",D47_5_2.getText().toString());
-                share.editor.putString("47_6_1",D47_6_1.getText().toString());
-                share.editor.putString("47_6_2",D47_6_2.getText().toString());
-                share.editor.putString("47_7_1",D47_7_1.getText().toString());
-                share.editor.putString("47_7_2",D47_7_2.getText().toString());
-                share.editor.putString("47_8_1",D47_8_1.getText().toString());
-                share.editor.putString("47_8_2",D47_8_2.getText().toString());
-                share.editor.putString("47_9_1",D47_9_1.getText().toString());
-                share.editor.putString("47_9_2",D47_9_2.getText().toString());
-                share.editor.putString("47_10_1",D47_10_1.getText().toString());
-                share.editor.putString("47_10_2",D47_10_2.getText().toString());
-                share.editor.putString("47_11_1",D47_11_1.getText().toString());
-                share.editor.putString("47_11_2",D47_11_2.getText().toString());
-                share.editor.putString("47_12_1",D47_12_1.getText().toString());
-                share.editor.putString("47_12_2",D47_12_2.getText().toString());
+                share.editor.putString("79",spinner47.getSelectedItem().toString());
+                share.editor.putString("80",D47_1_1.getText().toString());
+                share.editor.putString("81",D47_1_2.getText().toString());
+                share.editor.putString("82",D47_2_1.getText().toString());
+                share.editor.putString("83",D47_2_2.getText().toString());
+                share.editor.putString("84",D47_3_1.getText().toString());
+                share.editor.putString("85",D47_3_2.getText().toString());
+                share.editor.putString("86",D47_4_1.getText().toString());
+                share.editor.putString("87",D47_4_2.getText().toString());
+                share.editor.putString("88",D47_5_1.getText().toString());
+                share.editor.putString("89",D47_5_2.getText().toString());
+                share.editor.putString("90",D47_6_1.getText().toString());
+                share.editor.putString("91",D47_6_2.getText().toString());
+                share.editor.putString("92",D47_7_1.getText().toString());
+                share.editor.putString("93",D47_7_2.getText().toString());
+                share.editor.putString("94",D47_8_1.getText().toString());
+                share.editor.putString("95",D47_8_2.getText().toString());
+                share.editor.putString("96",D47_9_1.getText().toString());
+                share.editor.putString("97",D47_9_2.getText().toString());
+                share.editor.putString("98",D47_10_1.getText().toString());
+                share.editor.putString("99",D47_10_2.getText().toString());
+                share.editor.putString("100",D47_11_1.getText().toString());
+                share.editor.putString("101",D47_11_2.getText().toString());
+                share.editor.putString("102",D47_12_1.getText().toString());
+                share.editor.putString("103",D47_12_2.getText().toString());
 
 
 

@@ -143,11 +143,11 @@ public class CriticalEDProcedure extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
-                share.editor.putString("46_1",spinner46_1.getSelectedItem().toString());
-                share.editor.putString("46_2",spinner46_2.getSelectedItem().toString());
-               share.editor.putString("46_3",spinner46_3.getSelectedItem().toString());
-                share.editor.putString("46_4",spinner46_4.getSelectedItem().toString());
-               share.editor.putString("46_5",spinner46_5.getSelectedItem().toString());
+                share.editor.putString("74",spinner46_1.getSelectedItem().toString());
+                share.editor.putString("75",spinner46_2.getSelectedItem().toString());
+               share.editor.putString("76",spinner46_3.getSelectedItem().toString());
+                share.editor.putString("77",spinner46_4.getSelectedItem().toString());
+               share.editor.putString("78",spinner46_5.getSelectedItem().toString());
 
                 Intent i = new Intent(getApplicationContext(), PostAdmission.class);
                 if(id.equals("P")||(id=="P"))

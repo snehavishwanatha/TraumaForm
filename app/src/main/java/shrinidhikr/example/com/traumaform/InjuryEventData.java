@@ -397,12 +397,12 @@ public class InjuryEventData extends AppCompatActivity {
                 share.editor.putString("17",spinner17.getSelectedItem().toString());
                 share.editor.putString("18",spinner18.getSelectedItem().toString());
                 share.editor.putString("19",spinner19.getSelectedItem().toString());
-                share.editor.putString("20_1",spinner20_1.getSelectedItem().toString());
-                share.editor.putString("20_2",spinner20_2.getSelectedItem().toString());
-                share.editor.putString("20_3",spinner20_3.getSelectedItem().toString());
-                share.editor.putString("21",spinner21.getSelectedItem().toString());
-                share.editor.putString("22",spinner22.getSelectedItem().toString());
-                share.editor.putString("23",spinner23.getSelectedItem().toString());
+                share.editor.putString("20",spinner20_1.getSelectedItem().toString());
+                share.editor.putString("21",spinner20_2.getSelectedItem().toString());
+                share.editor.putString("22",spinner20_3.getSelectedItem().toString());
+                share.editor.putString("23",spinner21.getSelectedItem().toString());
+                share.editor.putString("24",spinner22.getSelectedItem().toString());
+                share.editor.putString("25",spinner23.getSelectedItem().toString());
                 share.editor.apply();
 
                 Intent i = new Intent(getApplicationContext(), DemographicHospital.class);
